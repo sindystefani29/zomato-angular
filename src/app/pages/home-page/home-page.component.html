@@ -1,2 +1,11 @@
 <p>home-page works!</p>
 <a routerLink="/login" routerLinkActive="active">login</a>
+
+<h1>Store</h1>
+<button (click)="increment()">Increment</button>
+
+<div>Current Count: {{ count$ | async }}</div>
+
+<button (click)="decrement()">Decrement</button>
+
+<button (click)="reset()">Reset Counter</button>

@@ -9,4 +9,5 @@
         <input type="password" id="password" [(ngModel)]="model.user.password" name="password" class="form-control">
     </div>
     <button (click)="login()" class="btn btn-primary">Login</button>
+    <div>Current Count: {{ (user$ | async).data.no_hp }}</div>
 </form>
