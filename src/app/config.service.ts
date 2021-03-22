@@ -18,16 +18,17 @@ export class ConfigService {
   login({
     username = '',
     password = ''
-  }){
-    // example for encrypt and decrypt
-    // var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
-    // var bytes  = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
+  }) {
+    // Encrypt
+    var ciphertext = CryptoJS.AES.encrypt(password, 'password').toString();
+
+    // Decrypt
+    // var bytes = CryptoJS.AES.decrypt(ciphertext, 'password');
     // var originalText = bytes.toString(CryptoJS.enc.Utf8);
-    // console.log(ciphertext,originalText)
-    const encPassword = CryptoJS.AES.encrypt(password, 'password').toString()
-    return this.http.post('http://localhost:3000/login', {
+
+    return this.http.post('/api/login', {
       "last_login_device": "",
-      "password": encPassword,
+      "password": ciphertext,
       "username": username
     });
   }
